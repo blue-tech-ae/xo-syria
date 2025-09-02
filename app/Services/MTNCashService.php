@@ -63,7 +63,7 @@ class MTNCashService
                 'headers' => [
                     'Request-Name' => 'pos_web/payment_phone/initiate',
                     'X-Signature' => $encryptedString,
-                    'Subject' => '9001000000048983',
+                    'Subject' => config('app.MTN_SERIAL'),
                     'Accept-Language' => 'en'
                 ],
                 'json' => [
@@ -118,8 +118,8 @@ class MTNCashService
 
 
         $jsonBody =  [
-            'Secret' => "18263555",
-            'Serial' => "9001000000048983",
+            'Secret' => config('app.MTN_SECRET'),
+            'Serial' => config('app.MTN_SERIAL'),
             'Key' =>   $publicKey
         ];
 
@@ -142,12 +142,12 @@ class MTNCashService
             'headers' => [
                 'Request-Name' => 'pos_web/pos/activate',
                 'X-Signature' => $encryptedString,
-                'Subject' => "9001000000048983",
+                'Subject' => config('app.MTN_SERIAL'),
                 'Accept-Language' => 'en'
             ],
             'json' => [
-                'Secret' => "18263555",
-                'Serial' => "9001000000048983",
+                'Secret' => config('app.MTN_SECRET'),
+                'Serial' => config('app.MTN_SERIAL'),
                 'Key' =>   $publicKey
             ],
             'stream' => false,
@@ -198,7 +198,7 @@ class MTNCashService
             'headers' => [
                 'Request-Name' => 'pos_web/payment_phone/initiate',
                 'X-Signature' => $encryptedString,
-                'Subject' => '9001000000048983',
+                'Subject' => config('app.MTN_SERIAL'),
                 'Accept-Language' => 'en'
             ],
             'json' => [
@@ -234,7 +234,7 @@ class MTNCashService
     {
 
 
-        $amount = isset($request->validated('Amount')) ? $request->validated('Amount') * 100 : ($request->header('X-Amount') * 100);
+        $amount = $request->validated('Amount') !== null ? $request->validated('Amount') * 100 : ($request->header('X-Amount') * 100);
 
 
         $invoice_number = rand(10000, 99999);
@@ -280,7 +280,7 @@ class MTNCashService
             'headers' => [
                 'Request-Name' => 'pos_web/invoice/create',
                 'X-Signature' => $encryptedString,
-                'Subject' => '9001000000048983',
+                'Subject' => config('app.MTN_SERIAL'),
                 'Accept-Language' => 'en'
             ],
             'json' => [

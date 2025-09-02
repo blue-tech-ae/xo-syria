@@ -65,6 +65,10 @@ return [
     'TWILIO_SID' => env('TWILIO_SID'),
     'TWILIO_VERIFY_SID' => env('TWILIO_VERIFY_SID'),
 
+    'MTN_SECRET' => env('MTN_SECRET'),
+    'MTN_SERIAL' => env('MTN_SERIAL'),
+    'MTN_QR' => env('MTN_QR'),
+
     'ecash_base_url' => env('ecash_base_url'),
     'ecash_terminal_key' => env('ecash_terminal_key'),
     'ecash_merchant_id' => env('ecash_merchant_id'),
