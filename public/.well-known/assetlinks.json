@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.bluetech.xo",
+      "sha256_cert_fingerprints": [
+        "55:37:05:36:9F:59:65:15:48:13:7F:8F:ED:ED:E0:F4:ED:4E:CB:A9:23:41:A7:24:A7:9F:2F:93:5E:E1:39:60"
+      ]
+    }
+  }
+]
