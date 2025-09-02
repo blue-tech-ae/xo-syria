@@ -74,7 +74,7 @@ class MTNPaymentTestController extends Controller
                 'headers' => [
                     'Request-Name' => 'pos_web/payment_phone/confirm',
                     'X-Signature' => $encryptedString,
-                    'Subject' => '9001000000048983',
+                    'Subject' => config('app.MTN_SERIAL'),
                     'Accept-Language' => 'en'
                 ],
                 'json' => [
@@ -304,8 +304,8 @@ return response()->error(['message' => 'Something went processing'],400);
 
 
         $jsonBody = [
-            'Secret' => "18263555",
-            'Serial' => "9001000000048983",
+            'Secret' => config('app.MTN_SECRET'),
+            'Serial' => config('app.MTN_SERIAL'),
             'Key' => $publicKey
         ];
 
@@ -328,12 +328,12 @@ return response()->error(['message' => 'Something went processing'],400);
             'headers' => [
                 'Request-Name' => 'pos_web/pos/activate',
                 'X-Signature' => $encryptedString,
-                'Subject' => "9001000000048983",
+                'Subject' => config('app.MTN_SERIAL'),
                 'Accept-Language' => 'en'
             ],
             'json' => [
-                'Secret' => "18263555",
-                'Serial' => "9001000000048983",
+                'Secret' => config('app.MTN_SECRET'),
+                'Serial' => config('app.MTN_SERIAL'),
                 'Key' => $publicKey
             ],
             'stream' => false,
@@ -375,7 +375,7 @@ return response()->error(['message' => 'Something went processing'],400);
             "Errno" => 0,
             "Receipt"=> [
                 "Invoice"=> 25666,
-                "Pos"=> 9001000000048983,
+                "Pos"=> config('app.MTN_SERIAL'),
                 "Session"=> 0,
                 "Status"=> 1,
                 "Amount"=> 100000,
@@ -387,7 +387,7 @@ return response()->error(['message' => 'Something went processing'],400);
                 "Processed"=> -62135596800,
                 "Commission"=> 0,
                 "Tax"=> 0,
-                "Qr"=> "MTN-M-9001000000048983-25666-3045022100EB6D8414D2DC5B6C460B8D5AFABE59417A4FFDD56DD017F16A6780D6A98C3172022012979E83A9B78227A6F5F4DAABEB4F88D077BB9880DBA515DB2D4D68F6A5AF9D",
+                "Qr"=> config('app.MTN_QR'),
                 "Currency"=> 0,
                 "Description"=> "Merchant QR payment",
                 "ReceiptError"=> [
@@ -441,7 +441,7 @@ return response()->error(['message' => 'Something went processing'],400);
             'headers' => [
                 'Request-Name' => 'pos_web/payment_phone/initiate',
                 'X-Signature' => $encryptedString,
-                'Subject' => '9001000000048983',
+                'Subject' => config('app.MTN_SERIAL'),
                 'Accept-Language' => 'en'
             ],
             'json' => [
@@ -593,7 +593,7 @@ return response()->error(['message' => 'Something went processing'],400);
             'headers' => [
                 'Request-Name' => 'pos_web/invoice/create',
                 'X-Signature' => $encryptedString,
-                'Subject' => '9001000000048983',
+                'Subject' => config('app.MTN_SERIAL'),
                 'Accept-Language' => 'en'
             ],
             'json' => [
@@ -646,7 +646,7 @@ return response()->error(['message' => 'Something went processing'],400);
             'headers' => [
                 'Request-Name' => 'pos_web/invoice/refund/initiate',
                 'X-Signature' => $encryptedString,
-                'Subject' => '9001000000048983',
+                'Subject' => config('app.MTN_SERIAL'),
                 'Accept-Language' => 'en'
             ],
             'json' => [
@@ -695,7 +695,7 @@ return response()->error(['message' => 'Something went processing'],400);
             'headers' => [
                 'Request-Name' => 'pos_web/invoice/refund/confirm',
                 'X-Signature' => $encryptedString,
-                'Subject' => '9001000000048983',
+                'Subject' => config('app.MTN_SERIAL'),
                 'Accept-Language' => 'en'
             ],
             'json' => [
@@ -744,7 +744,7 @@ return response()->error(['message' => 'Something went processing'],400);
             'headers' => [
                 'Request-Name' => 'pos_web/invoice/refund/confirm',
                 'X-Signature' => $encryptedString,
-                'Subject' => '9001000000048983',
+                'Subject' => config('app.MTN_SERIAL'),
                 'Accept-Language' => 'en'
             ],
             'json' => [
